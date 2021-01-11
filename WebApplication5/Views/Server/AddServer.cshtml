@@ -1,0 +1,34 @@
+﻿@model WebApplication5.Models.ServerModel
+@{
+    ViewBag.Title = "AddServer";
+}
+
+<h2>AddServer</h2>
+
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary();
+        @Html.LabelFor(s => s.Name)
+        <br />
+        @Html.TextBoxFor(s => s.Name)
+        <br />
+        @Html.LabelFor(s => s.description)
+        <br />
+        @Html.TextAreaFor(s => s.description)
+        <br />
+        @Html.LabelFor(s => s.Price)
+        <br />
+        @Html.TextBoxFor(s => s.Price)
+         <br/>
+        @Html.LabelFor(s => s.DueTime)
+        <br/>
+        @Html.TextBoxFor(s => s.DueTime)
+        <br />
+        @Html.LabelFor(s => s.PayMent)
+        <br />
+        @Html.TextBoxFor(c => c.PayMent)
+        <br /><br />
+        <input type="submit" value="Submit" />
+    }
+</div>

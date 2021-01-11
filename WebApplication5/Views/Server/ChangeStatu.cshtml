@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "ChangeStatu";
+}
+
+<h2>ChangeStatu</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary();
+    @Html.Label("Change Status")
+    <br />
+    @Html.TextBox("statu")
+    <br />
+   <input type="submit"value="Submit" />
+}

@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "RemovedClient";
+}
+
+<h2>RemovedClient</h2>
+
+<div style="float:left">
+
+    @foreach (var item in Model)
+    {
+        <a href="@Url.Action("ClientInfo", "Home", new { id = item.Id })">@item.Name </a>
+        <a href="@Url.Action("BackClient","Home", new { id = item.Id})">Back Staff</a>
+        <br />
+    }
+</div>

@@ -1,0 +1,34 @@
+﻿@model WebApplication5.Models.ClientModel
+@{
+    ViewBag.Title = "AddClient";
+}
+
+<h2>AddClient</h2>
+
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary();
+        @Html.LabelFor(c=>c.Name)
+        <br />
+        @Html.TextBoxFor(c=>c.Name)
+        <br />
+        @Html.LabelFor(c=>c.Email)
+        <br />
+        @Html.TextBoxFor(c=>c.Email)
+        <br />
+        @Html.LabelFor(c=>c.Address)
+        <br />
+        @Html.TextBoxFor(c=>c.Address)
+        <br />
+        @Html.LabelFor(c=>c.PhoneNum)
+        <br />
+        @Html.TextBoxFor(c=>c.PhoneNum)
+        <br />
+        @Html.LabelFor(c=>c.Password)
+        <br />
+        @Html.PasswordFor(c=>c.Password)
+        <br /><br />
+        <input type="submit" value="Submit" />
+    }
+</div>

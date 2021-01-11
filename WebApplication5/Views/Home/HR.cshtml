@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "HR";
+}
+
+<h2>HR</h2>
+
+<div>
+    <a href="@Url.Action("AddRole","Home")">Add Role</a>
+    <br />
+    <a href="@Url.Action("RemovedStaff","Home")">Show Removed Staff</a>
+    <br />
+    <a href="@Url.Action("Reguster","Home")">Add New Staff</a>
+    <br /><br /><br /><hr />
+    @foreach (var item in Model)
+    {
+        <a href="@Url.Action("GetStaff","Home", new { id = item.Id})">@item.Name</a>
+        <a href="@Url.Action("EditStaff","Home", new { id = item.Id})">Change Staff Informations</a>
+        <a href="@Url.Action("DeleteStaff","Home", new { id = item.Id})">Delete Staff</a>
+        <br />
+    }
+</div>

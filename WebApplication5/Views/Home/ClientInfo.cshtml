@@ -1,0 +1,71 @@
+﻿@model  WebApplication5.Models.Client
+
+<h2>ClientInfo</h2>
+<h2><a href="@Url.Action("AddServer", "Server",new { id = Model.Id })">Add Server</a></h2>
+
+<div>
+
+    @foreach (var item in Model.UserClients)
+    {
+        <p>Manager: @item.User.Name</p>
+    }
+    <p>Name:  @Model.Name</p>
+    <p>Email: @Model.Email</p>
+    <p>Phone Number: @Model.PhoneNum</p>
+    <p>Address: @Model.Address</p>
+    <p>Join Time: @Model.Created</p>
+    <p>Password: @Model.Password</p>
+    <br />
+    <a href="@Url.Action("ChangdeClientInfo","Server", new { id = Model.Id})">Change Client Information</a>
+    <br />
+    <br />
+    @foreach (var item in Model.Servers)
+    {
+        <p>Server Name: @item.Name</p>
+        <p>Discription @item.description</p>
+        <p>Price @item.Price</p>
+
+        <p>Join Time @item.Create</p>
+        <p>DueTime: @item.DueTime</p>
+        <a href="@Url.Action("ChangeStatu","Server",new { id = item.Id,clientId=Model.Id })"><p>Server Statu: @item.ServerStatu</p></a>
+        <hr />
+        foreach (var payment in item.ServerPayments)
+        {
+            <p>Pay Time: @payment.Create</p>
+            <p>Money: @payment.Payment</p>
+            <br /><br />
+
+        }
+        <div>
+            @using (Html.BeginForm("PayMent", "Server", new { id = item.Id, clientId = Model.Id }))
+            {
+                @Html.ValidationSummary()
+
+                @Html.Label("Pay")
+                <br />
+                /*这里需要验证是否是数字*/
+                @Html.TextBox("payment")
+                <br /><br />
+                <input type="submit" value="Pay" />
+            }
+        </div>
+        <hr />
+        <br /><br />
+        @*<h4>Historys:</h4>
+        foreach (var history in item.ServerHistories)
+        {
+            <p>Time: @history.Create</p>
+            <p>Description: @history.description</p>
+            <hr />
+        }*@
+    }
+
+    <br />
+
+    <br />
+    <a href="@Url.Action("UploadFile","Server", new { id = Model.Id})">Upload File</a>
+    <br />
+    <a href="@Url.Action("ShowFiles","Server", new { id = Model.Id})">Show Files</a>
+
+</div>
+

@@ -1,0 +1,37 @@
+﻿@model WebApplication5.Models.UserRigusterModel
+@{
+    ViewBag.Title = "Reguster";
+}
+
+<h2>Reguster</h2>
+
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+
+        @Html.LabelFor(m => m.Name)
+        <br />
+        @Html.TextBoxFor(m => m.Name)
+        <br />
+        @Html.LabelFor(u => u.Email)
+        <br />
+        @Html.TextBoxFor(u => u.Email)
+        <br />
+        @Html.LabelFor(u => u.Password)
+        <br />
+        @Html.PasswordFor(u => u.Password)
+        <br />
+        @Html.LabelFor(u => u.ConfirmPassword)
+        <br />
+        @Html.PasswordFor(u => u.ConfirmPassword)
+
+        <br />
+        <br />
+       @Html.DropDownList("role")
+       <br/><br/>
+
+<input type="submit" value="Submit" />
+    }
+
+</div>

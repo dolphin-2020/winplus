@@ -1,0 +1,28 @@
+﻿@model WebApplication5.Models.Client
+@{
+    ViewBag.Title = "ClientLogin";
+}
+
+<h2>ClientLogin</h2>
+
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+
+        @Html.LabelFor(m => m.Name)
+        <br />
+        @Html.TextBoxFor(m => m.Name)
+        <br />
+        @Html.LabelFor(u => u.Email)
+        <br />
+        @Html.TextBoxFor(u => u.Email)
+        <br />
+        @Html.LabelFor(u => u.Password)
+        <br />
+        @Html.PasswordFor(u => u.Password)
+        <br />
+        <br />
+        <input type="submit" value="Submit" />
+    }
+</div>

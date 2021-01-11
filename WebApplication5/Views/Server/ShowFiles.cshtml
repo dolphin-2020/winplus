@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "ShowFiles";
+}
+
+<h2>ShowFiles</h2>
+
+<div>
+    @foreach (var item in Model)
+    {
+        <a href="/Server/Download?filePath=@ViewBag.path&fileName=@item">@item</a>
+        <br />
+    }
+    @*<a href="@Url.Action("ClientInfo", "Home", new { id = item.Client.Id })">@item.Client.Name </a>*@
+
+</div>

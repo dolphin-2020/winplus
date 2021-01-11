@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "GetStaff";
+}
+
+<h2>GetStaff</h2>
+
+<div>
+    <p>Name: @Model.Name</p>
+    <p>Email: @Model.Email</p>
+    <p>Password: @Model.Password</p>
+    <p>Join Time: @Model.JoinTime</p>
+
+    <p>User Role: @Model.UserRole.RoleName</p>
+    <br />
+    <br />
+    <h4>My Clients</h4>
+    @foreach (var item in Model.UserClients)
+    {
+        <a href="@Url.Action("ClientInfo", "Home", new { id = item.Client.Id })">@item.Client.Name </a>
+   <br />
+        }
+</div>

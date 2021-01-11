@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "AddRole";
+}
+
+<h2>AddRole</h2>
+
+<div>
+    @foreach (var item in Model)
+    {
+        <p>@item.RoleName</p>
+    }
+</div>
+
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary();
+        @Html.Label("Role Name:")
+        <br />
+        @Html.TextBox("role")
+        <br /><br />
+       <input type="submit" value="Submit" />
+    }
+</div>
+

@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>WinPlus</h2>
+
+<p>
+    赢加国际有资深移民律师顾问为后盾，有市场、留学、移民、翻译和服务等部门组成。更有求职顾问和中国境内中介的加盟。 强大的团队和丰富的经验让我们我们有能力和实力提供各类留学移民相关的服务。
+    我们以诚信为本，力求提供务实的服务。无论是求学还是移民；无论是申请要求低、审批快的省提名 项目，还是选择广泛的联邦移民；无论是费时、费事的诸如接机、安排住宿等日常日常生活服务，还是费神、费工的各类签证和驾照翻译证明服务， 我们都满怀热忱、一丝不苟地去对待。
+</p>
+
+<div>
+    @using (Html.BeginForm())
+    {
+        <input type="text" />
+        <input type="submit" value="Serach Client Informations" />
+    }
+    <br />
+    <br />
+    <a href="@Url.Action("AddClient","Home")">Add Client</a>
+    <br />
+    <a href="@Url.Action("","")"></a>
+    <br />
+</div>
+
+<div>
+    <div style="float:left">
+        <h2>My Clients</h2>
+        @foreach (var item in Model)
+        {
+            <p>@item.Name</p>
+        }
+    </div>
+    <br /><br />
+
+</div>

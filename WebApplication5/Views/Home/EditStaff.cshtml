@@ -1,0 +1,28 @@
+﻿@model WebApplication5.Models.User
+@{
+    ViewBag.Title = "EditStaff";
+}
+
+<h2>EditStaff</h2>
+
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary();
+        @Html.LabelFor(u => u.Name)
+        <br />
+        @Html.TextBoxFor(u => u.Name)
+        <br />
+        @Html.LabelFor(u => u.Email)
+        <br />
+        @Html.TextBoxFor(u => u.Email)
+        <br />
+        @Html.LabelFor(u => u.Password)
+        <br />
+        @Html.TextBoxFor(u => u.Password)
+        <br />
+
+        <input type="submit" value="Change Staff Information" />
+    }
+
+</div>

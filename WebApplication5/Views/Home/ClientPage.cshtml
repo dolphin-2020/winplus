@@ -1,0 +1,60 @@
+﻿@model  WebApplication5.Models.Client
+@{
+    ViewBag.Title = "ClientPage";
+}
+
+<h2>ClientPage</h2>
+
+<div>
+
+    @foreach (var item in Model.UserClients)
+    {
+        <p>Manager: @item.User.Name</p>
+    }
+    <p>Name:  @Model.Name</p>
+    <p>Email: @Model.Email</p>
+    <p>Phone Number: @Model.PhoneNum</p>
+    <p>Address: @Model.Address</p>
+    <p>Join Time: @Model.Created</p>
+    <p>Password: @Model.Password</p>
+    <br />
+    <a href="@Url.Action("ChangdeClientInfo","Server", new { id = Model.Id})">Change Client Information</a>
+    <br />
+    <br />
+    @foreach (var item in Model.Servers)
+    {
+        <p>Server Name: @item.Name</p>
+        <p>Discription @item.description</p>
+        <p>Price @item.Price</p>
+
+        <p>Join Time @item.Create</p>
+        <p>DueTime: @item.DueTime</p>
+       <p>Server Statu: @item.ServerStatu</p>
+        <hr />
+        foreach (var payment in item.ServerPayments)
+        {
+            <p>Pay Time: @payment.Create</p>
+            <p>Money: @payment.Payment</p>
+            <br /><br />
+
+        }
+      
+        <hr />
+        <br /><br />
+        @*<h4>Historys:</h4>
+            foreach (var history in item.ServerHistories)
+            {
+                <p>Time: @history.Create</p>
+                <p>Description: @history.description</p>
+                <hr />
+            }*@
+    }
+
+    <br />
+
+    <br />
+    <a href="@Url.Action("UploadFile","Server", new { id = Model.Id})">Upload File</a>
+    <br />
+    <a href="@Url.Action("ShowFiles","Server", new { id = Model.Id})">Show Files</a>
+
+</div>

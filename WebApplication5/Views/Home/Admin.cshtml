@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Admin";
+}
+
+<p>
+    赢加国际有资深移民律师顾问为后盾，有市场、留学、移民、翻译和服务等部门组成。更有求职顾问和中国境内中介的加盟。 强大的团队和丰富的经验让我们我们有能力和实力提供各类留学移民相关的服务。
+    我们以诚信为本，力求提供务实的服务。无论是求学还是移民；无论是申请要求低、审批快的省提名 项目，还是选择广泛的联邦移民；无论是费时、费事的诸如接机、安排住宿等日常日常生活服务，还是费神、费工的各类签证和驾照翻译证明服务， 我们都满怀热忱、一丝不苟地去对待。
+</p>
+<a href="@Url.Action("RemovedClient","Home")">Show Removed Client</a>
+<br />
+<a href="@Url.Action("AddRole","Home")">Add Role</a>
+<br />
+<a href="@Url.Action("RemovedStaff","Home")">Show Removed Staff</a>
+<br />
+<div>
+    @using (Html.BeginForm("Search","Home"))
+    {
+        @Html.ValidationSummary();
+        @Html.TextBox("Name")
+        <input type="submit" value="Serach Client Informations" />
+    }
+    <br />
+    <a href="@Url.Action("Reguster","Home")">Add New Staff</a>
+    <br />
+    <a href="@Url.Action("AddClient","Home")">Add Client</a>
+    <br />
+    <br />
+</div>
+
+<div>
+    <div style="float:left">
+        <h2>My staffs</h2>
+        @foreach (var item in Model)
+        {
+            <a href="@Url.Action("GetStaff","Home", new { id = item.Id})">@item.Name</a>
+            <a href="@Url.Action("EditStaff","Home", new { id = item.Id})">Change Staff Informations</a>
+            <a href="@Url.Action("DeleteStaff","Home", new { id = item.Id})">Delete Staff</a>
+            <br />
+        }
+    </div>
+    <br /><br />
+
+    <div style="float:right">
+        <h2>My Clients</h2>
+        @foreach (var item in ViewBag.Clients)
+        {
+            <a href="@Url.Action("ClientInfo", "Home", new { id = item.Id })">@item.Name </a>
+          
+            <a href="@Url.Action("DeleteClient","Home", new { id = item.Id})">Delete</a>
+            <br />
+        }
+    </div>
+</div>
+
